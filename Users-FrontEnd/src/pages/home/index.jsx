@@ -38,6 +38,9 @@ function Home() {
     .catch((error) => {
       console.log(error)
     })
+
+    getUsers()
+
   }
 
   useEffect(() => {
@@ -56,16 +59,20 @@ function Home() {
         <button type='submit' onClick={createUser}>Register</button>
       </form>
 
-    
 
-      <div className='card'>
-        <div>
-          <p> <span></span></p>
-          <p> <span></span></p>
-          <p> <span></span></p>
+        {  users.map(user => (
+            <div className='card' key={user.id}>
+            <div>
+              <p> Name:<span>{user.name}</span></p>
+              <p> Email:<span>{user.email}</span></p>
+              <p> Age:<span>{user.age}</span></p>
+            </div>
+            <button><img src={Garbage} /></button>
         </div>
-        <button><img src={Garbage} /></button>
-      </div>
+        
+          ))}
+
+      
 
     </div>
   )
